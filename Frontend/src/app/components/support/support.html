@@ -1,0 +1,145 @@
+<div class="float-book fb-1"><i class="fas fa-book"></i></div>
+<div class="float-book fb-2"><i class="fas fa-book-open"></i></div>
+<div class="float-book fb-3"><i class="fas fa-bookmark"></i></div>
+<div class="float-book fb-4"><i class="fas fa-feather-alt"></i></div>
+<div class="float-book fb-5"><i class="fas fa-scroll"></i></div>
+
+<div class="support-page">
+
+  <nav class="support-nav">
+    <div class="nav-brand">
+      <div class="brand-icon"><i class="fas fa-book-open"></i></div>
+      <div class="brand-name">
+        LibraryOS
+        <span>Management System</span>
+      </div>
+    </div>
+    <div class="nav-links">
+      <a routerLink="/login"    class="nav-link">Login</a>
+      <a routerLink="/about"    class="nav-link">About</a>
+      <a routerLink="/register" class="nav-link nav-cta">Get Started</a>
+    </div>
+  </nav>
+
+  <div class="support-container">
+
+    <!-- LEFT INFO PANEL -->
+    <div class="info-panel">
+      <div class="card-shine"></div>
+
+      <div class="info-badge"><i class="fas fa-headset"></i> Support Center</div>
+      <h1 class="info-title">We're here<br><em>to help you.</em></h1>
+      <p class="info-desc">Facing any issue with the Library Management System? Our team responds quickly through secure email.</p>
+
+      <div class="info-items">
+        <div class="info-item">
+          <div class="info-icon"><i class="fas fa-clock"></i></div>
+          <div>
+            <strong>Response Time</strong>
+            <p>Usually within 24 hours</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon"><i class="fas fa-envelope"></i></div>
+          <div>
+            <strong>Email</strong>
+            <p>library.lms.project&#64;gmail.com</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon"><i class="fas fa-phone"></i></div>
+          <div>
+            <strong>Phone</strong>
+            <p>+91 9337738523</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div>
+            <strong>Location</strong>
+            <p>752050, Jatani, CUTM</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-note">
+        <i class="fas fa-shield-alt"></i>
+        Emails are delivered using secure Brevo SMTP.
+      </div>
+    </div>
+
+    <!-- RIGHT FORM PANEL -->
+    <div class="form-panel">
+      <div class="card-shine"></div>
+
+      <div class="form-panel-header">
+        <div class="fp-icon"><i class="fas fa-paper-plane"></i></div>
+        <div>
+          <h2>Send a Message</h2>
+          <p>Fill in the form and we'll get back to you.</p>
+        </div>
+      </div>
+
+      <form class="support-form">
+
+        <div class="field-group">
+          <label class="field-label">Your Name</label>
+          <div class="field-wrap">
+            <i class="fas fa-user field-icon"></i>
+            <input
+              class="field-input"
+              [(ngModel)]="name"
+              name="name"
+              placeholder="Enter your name"
+            />
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">Your Email</label>
+          <div class="field-wrap">
+            <i class="fas fa-envelope field-icon"></i>
+            <input
+              class="field-input"
+              [(ngModel)]="email"
+              name="email"
+              type="email"
+              placeholder="Enter your email"
+            />
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">Message</label>
+          <div class="field-wrap textarea-wrap">
+            <i class="fas fa-comment-alt field-icon field-icon-top"></i>
+            <textarea
+              class="field-input field-textarea"
+              rows="5"
+              [(ngModel)]="message"
+              name="message"
+              placeholder="Describe your problem in detail..."
+            ></textarea>
+          </div>
+        </div>
+
+        <button
+          type="button"
+          class="btn-send"
+          (click)="sendMessage()"
+          [disabled]="loading"
+        >
+          <span
+            *ngIf="loading"
+            class="spinner-border spinner-border-sm me-2"
+            role="status"
+          ></span>
+          <i *ngIf="!loading" class="fas fa-paper-plane"></i>
+          <span>{{ loading ? 'Sending...' : 'Send Message' }}</span>
+        </button>
+
+      </form>
+    </div>
+
+  </div>
+</div>

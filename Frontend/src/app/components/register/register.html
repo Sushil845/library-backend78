@@ -1,0 +1,177 @@
+<!-- Toast -->
+<div *ngIf="toast" class="toast-single" [ngClass]="toast.type">
+  <div class="icon">
+    <i *ngIf="toast.type === 'success'" class="fas fa-check-circle"></i>
+    <i *ngIf="toast.type === 'error'"   class="fas fa-times-circle"></i>
+    <i *ngIf="toast.type === 'info'"    class="fas fa-info-circle"></i>
+  </div>
+  <div class="msg">{{ toast.message }}</div>
+</div>
+
+<div class="page-wrapper">
+
+  <!-- LEFT PANEL -->
+  <aside class="left-panel">
+    <div class="deco-ring ring-1"></div>
+    <div class="deco-ring ring-2"></div>
+    <div class="deco-ring ring-3"></div>
+
+    <div class="left-brand">
+      <div class="brand-logo">
+        <div class="brand-icon"><i class="fas fa-book-open"></i></div>
+        <div class="brand-name">
+          Library
+          <span>Management System</span>
+        </div>
+      </div>
+      <div class="left-headline">
+        <h2>Your library,<br><em>intelligently</em> managed.</h2>
+        <p>A powerful platform for cataloguing, lending, and discovering books — built for modern institutions.</p>
+        <div class="left-stats">
+          <div class="stat-pill"><i class="fas fa-book"></i> 50 000+ Titles</div>
+          <div class="stat-pill"><i class="fas fa-users"></i> 12 000+ Members</div>
+          <div class="stat-pill"><i class="fas fa-star"></i> 4.9 Rating</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="left-features">
+      <div class="feature-item">
+        <div class="feature-icon"><i class="fas fa-search"></i></div>
+        <div class="feature-text">
+          <strong>Smart Catalogue Search</strong>
+          <p>Find any title instantly across all collections.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon"><i class="fas fa-calendar-check"></i></div>
+        <div class="feature-text">
+          <strong>Borrow &amp; Return Tracking</strong>
+          <p>Real-time due dates, reminders, and history.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+        <div class="feature-text">
+          <strong>Secure Member Portal</strong>
+          <p>Role-based access for staff and members.</p>
+        </div>
+      </div>
+      <div class="left-nav-links" style="margin-top:2.5rem;">
+        <a routerLink="/about">About</a>
+        <a routerLink="/support">Support</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- RIGHT PANEL -->
+  <main class="right-panel">
+
+    <!-- Floating book decorations -->
+    <div class="float-book fb-1"><i class="fas fa-book"></i></div>
+    <div class="float-book fb-2"><i class="fas fa-book-open"></i></div>
+    <div class="float-book fb-3"><i class="fas fa-bookmark"></i></div>
+    <div class="float-book fb-4"><i class="fas fa-feather-alt"></i></div>
+    <div class="float-book fb-5"><i class="fas fa-scroll"></i></div>
+
+    <div class="top-links">
+      <a routerLink="/about"   class="top-link">About</a>
+      <span class="sep">|</span>
+      <a routerLink="/support" class="top-link">Support</a>
+    </div>
+
+    <div class="right-panel-inner">
+
+      <!-- Shine sweep -->
+      <div class="card-shine"></div>
+
+      <div class="form-heading">
+        <div class="eyebrow"><i class="fas fa-user-plus"></i> New Account</div>
+        <h1>Create your account</h1>
+        <p>Join thousands of readers. It only takes a few seconds.</p>
+      </div>
+
+      <form #regForm="ngForm" (ngSubmit)="registerUser()">
+
+        <div class="field-group">
+          <label for="name" class="field-label">Full Name</label>
+          <div class="field-wrap">
+            <i class="fas fa-user field-icon"></i>
+            <input
+              type="text"
+              class="field-input"
+              id="name"
+              placeholder="Enter your full name"
+              [(ngModel)]="name"
+              name="name"
+              required
+            >
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label for="email" class="field-label">Email Address</label>
+          <div class="field-wrap">
+            <i class="fas fa-envelope field-icon"></i>
+            <input
+              type="email"
+              class="field-input"
+              id="email"
+              placeholder="Enter your email"
+              [(ngModel)]="email"
+              name="email"
+              required
+            >
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label for="password" class="field-label">Password</label>
+          <div class="field-wrap">
+            <i class="fas fa-lock field-icon"></i>
+            <input
+              [type]="showPassword ? 'text' : 'password'"
+              class="field-input has-eye"
+              id="password"
+              placeholder="Create a strong password"
+              [(ngModel)]="password"
+              name="password"
+              required
+              (input)="updatePasswordStrength($event)"
+            >
+            <button type="button" class="eye-btn" (click)="togglePassword()">
+              <i class="fas" [ngClass]="showPassword ? 'fa-eye-slash' : 'fa-eye'"></i>
+            </button>
+          </div>
+          <div class="strength-track password-strength" [ngClass]="passwordStrength">
+            <div class="strength-fill"></div>
+          </div>
+          <p class="field-hint">Use 8+ characters with letters, numbers &amp; symbols.</p>
+        </div>
+
+        <button
+          type="submit"
+          class="btn-register"
+          [ngClass]="regForm.valid ? 'enabled' : 'disabled-state'"
+          [disabled]="!regForm.valid"
+        >
+          <i class="fas fa-user-plus"></i>
+          <span>Create Account</span>
+        </button>
+
+      </form>
+
+      <p class="login-cta">
+        Already have an account?
+        <a routerLink="/login">Login here</a>
+      </p>
+
+      <div class="trust-row">
+        <div class="trust-badge"><i class="fas fa-lock"></i> Encrypted</div>
+        <div class="trust-badge"><i class="fas fa-shield-alt"></i> Secure</div>
+        <div class="trust-badge"><i class="fas fa-check-circle"></i> Free to join</div>
+      </div>
+
+    </div>
+  </main>
+</div>
