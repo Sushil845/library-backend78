@@ -42,14 +42,14 @@ export class Login implements OnInit, OnDestroy {
   activityPopups: ActivityPopup[] = [];
 
   private readonly ACTIVITIES = [
-    { name:'Riya',    init:'R', avClass:'av-rose',  colorClass:'ac-borrow',  emoji:'📖', action:'just borrowed',    book:'Atomic Habits'           },
-    { name:'Arjun',   init:'A', avClass:'av-azure', colorClass:'ac-reserve', emoji:'🔖', action:'returned',         book:'The Alchemist'            },
-    { name:'Sneha',   init:'S', avClass:'av-purp',  colorClass:'ac-finish',  emoji:'⭐', action:'returned', book:'Sapiens'                  },
-    { name:'Karthik', init:'K', avClass:'av-gold',  colorClass:'ac-borrow',  emoji:'📚', action:'just borrowed',    book:'Wings of Fire'            },
-    { name:'Meera',   init:'M', avClass:'av-teal',  colorClass:'ac-return',  emoji:'✅', action:'returned',         book:'Rich Dad Poor Dad'        },
-    { name:'Dev',     init:'D', avClass:'av-azure', colorClass:'ac-borrow',  emoji:'📖', action:'just borrowed',    book:'Think & Grow Rich'        },
-    { name:'Priya',   init:'P', avClass:'av-rose',  colorClass:'ac-reserve', emoji:'🔖', action:'returned',         book:'Ikigai'                   },
-    { name:'Rahul',   init:'R', avClass:'av-gold',  colorClass:'ac-borrow',  emoji:'📚', action:'just borrowed',    book:'The Psychology of Money'  },
+    { name:'Chinmaya',    init:'C', avClass:'av-rose',  colorClass:'ac-borrow',  emoji:'📖', action:'just borrowed',    book:'Atomic Habits'           },
+    { name:'Sushil',   init:'S', avClass:'av-azure', colorClass:'ac-reserve', emoji:'🔖', action:'returned',         book:'The Alchemist'            },
+    { name:'Shaswat',   init:'S', avClass:'av-purp',  colorClass:'ac-finish',  emoji:'⭐', action:'returned', book:'Sapiens'                  },
+    { name:'Bhawani', init:'B', avClass:'av-gold',  colorClass:'ac-borrow',  emoji:'📚', action:'just borrowed',    book:'Wings of Fire'            },
+    { name:'Anup',   init:'A', avClass:'av-teal',  colorClass:'ac-return',  emoji:'✅', action:'returned',         book:'Rich Dad Poor Dad'        },
+    { name:'Thabir',     init:'T', avClass:'av-azure', colorClass:'ac-borrow',  emoji:'📖', action:'just borrowed',    book:'Think & Grow Rich'        },
+    { name:'Uttu',   init:'U', avClass:'av-rose',  colorClass:'ac-reserve', emoji:'🔖', action:'returned',         book:'Ikigai'                   },
+    { name:'Afreen',   init:'A', avClass:'av-gold',  colorClass:'ac-borrow',  emoji:'📚', action:'just borrowed',    book:'The Psychology of Money'  },
   ];
 
   private actIdx:       number = 0;
